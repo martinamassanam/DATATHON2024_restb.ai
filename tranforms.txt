@@ -1,0 +1,372 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "Listing.ListingId",
+    "description": "Remove column Listing.ListingId"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Tax.Zoning",
+    "description": "Remove column Tax.Zoning"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "UnitTypes.UnitTypeType",
+    "description": "Remove column UnitTypes.UnitTypeType"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Structure.ParkingFeatures",
+    "expression": "grel:if(isBlank(value), 0, 1)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.ParkingFeatures using expression grel:if(isBlank(value), 0, 1)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Structure.NewConstructionYN",
+    "expression": "grel:if(value == \"True\", 1, if(value == \"False\", 0, value))",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.NewConstructionYN using expression grel:if(value == \"True\", 1, if(value == \"False\", 0, value))"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Structure.YearBuilt",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.YearBuilt using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "Structure.LivingArea",
+          "expression": "value",
+          "columnName": "Structure.LivingArea",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "0.0",
+                "l": "0.0"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "record-based"
+    },
+    "columnName": "Structure.LivingArea",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.LivingArea using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "record-based"
+    },
+    "columnName": "Structure.LivingArea",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.LivingArea using expression value.toNumber()"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Characteristics.LotSizeSquareFeet",
+    "description": "Remove column Characteristics.LotSizeSquareFeet"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.LivingArea",
+    "expression": "grel:if(value < 350, null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.LivingArea using expression grel:if(value < 350, null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.LivingArea",
+    "expression": "grel:if(isBlank(value), null, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.LivingArea using expression grel:if(isBlank(value), null, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.FireplacesTotal",
+    "expression": "grel:if(isBlank(value), 0, 1)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.FireplacesTotal using expression grel:if(isBlank(value), 0, 1)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Structure.BelowGradeUnfinishedArea",
+    "description": "Remove column Structure.BelowGradeUnfinishedArea"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Structure.BelowGradeFinishedArea",
+    "description": "Remove column Structure.BelowGradeFinishedArea"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.Rooms.RoomsTotal",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.Rooms.RoomsTotal using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.BathroomsFull",
+    "expression": "grel:if(isBlank(value), 0, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.BathroomsFull using expression grel:if(isBlank(value), 0, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.BathroomsFull",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.BathroomsFull using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.BathroomsHalf",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.BathroomsHalf using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.BathroomsHalf",
+    "expression": "grel:if(isBlank(value), 0, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.BathroomsHalf using expression grel:if(isBlank(value), 0, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.BedroomsTotal",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.BedroomsTotal using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.BedroomsTotal",
+    "expression": "grel:if(isBlank(value), 0, value)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.BedroomsTotal using expression grel:if(isBlank(value), 0, value)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Structure.Basement",
+    "expression": "grel:if(isBlank(value), 0, 1)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Structure.Basement using expression grel:if(isBlank(value), 0, 1)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Area.SubdivisionName",
+    "description": "Remove column Location.Area.SubdivisionName"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.UnparsedAddress",
+    "description": "Remove column Location.Address.UnparsedAddress"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.UnitNumber",
+    "description": "Remove column Location.Address.UnitNumber"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.StreetNumber",
+    "description": "Remove column Location.Address.StreetNumber"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.StreetName",
+    "description": "Remove column Location.Address.StreetName"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.StreetDirectionSuffix",
+    "description": "Remove column Location.Address.StreetDirectionSuffix"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.StreetDirectionPrefix",
+    "description": "Remove column Location.Address.StreetDirectionPrefix"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.StateOrProvince",
+    "description": "Remove column Location.Address.StateOrProvince"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.PostalCodePlus4",
+    "description": "Remove column Location.Address.PostalCodePlus4"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Location.Address.CountyOrParish",
+    "description": "Remove column Location.Address.CountyOrParish"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Listing.Dates.CloseDate",
+    "expression": "grel:value.substring(0,4)",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Listing.Dates.CloseDate using expression grel:value.substring(0,4)"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Listing.Dates.CloseDate",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Listing.Dates.CloseDate using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Listing.Price.ClosePrice",
+    "expression": "value.toNumber()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column Listing.Price.ClosePrice using expression value.toNumber()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "ImageData.style.stories.summary.label",
+    "expression": "grel:if(isBlank(value), 1, value.split(\"_\")[0].toNumber())",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Text transform on cells in column ImageData.style.stories.summary.label using expression grel:if(isBlank(value), 1, value.split(\"_\")[0].toNumber())"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ImageData.style.exterior.summary.label",
+    "description": "Remove column ImageData.style.exterior.summary.label"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "Characteristics.LotFeatures",
+    "description": "Remove column Characteristics.LotFeatures"
+  }
+]
